@@ -31,7 +31,7 @@ public class HelloCBOData extends HttpServlet
 
         logger.info("I am in!");
 
-        HttpDestination httpDestination = DestinationAccessor.getDestination("S4H_30").asHttp();
+        HttpDestination httpDestination = DestinationAccessor.getDestination("S4H_s30").asHttp();
 
         logger.info("httpDestination:" + httpDestination.toString());
 

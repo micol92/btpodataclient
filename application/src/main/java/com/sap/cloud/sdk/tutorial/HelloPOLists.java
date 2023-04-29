@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.ServletException;
 
 @WebServlet("/hellopolist")
 
@@ -27,7 +28,7 @@ public class HelloPOLists extends HttpServlet {
 
     @Override
     protected void doGet( final HttpServletRequest request, final HttpServletResponse response )
-            throws IOException
+            throws ServletException, IOException
     {
     
         logger.info("I am in!");
@@ -62,6 +63,11 @@ public class HelloPOLists extends HttpServlet {
         }
         
         logger.info("I am running!");
-        response.getWriter().write(stringBuffer.toString());
+        //response.getWriter().write(stringBuffer.toString());
+        request.setAttribute("model", stringBuffer.toString());
+
+        request.getRequestDispatcher("hellopolist.jsp").forward(request, response);
+
+
     }
 }
